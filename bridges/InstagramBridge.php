@@ -135,9 +135,7 @@ class InstagramBridge extends BridgeAbstract {
 					} else {
 						$mediaURI = self::URI . 'p/' . $media->shortcode . '/media?size=l';
 					}
-					$item['content'] = '<a href="' . htmlentities($item['uri']) . '" target="_blank">';
-					$item['content'] .= '<img src="' . htmlentities($mediaURI) . '" alt="' . $item['title'] . '" />';
-					$item['content'] .= '</a><br><br>' . nl2br(htmlentities($textContent));
+					$item['content'] = $mediaURI;
 					$item['enclosures'] = array($mediaURI);
 					break;
 				case 'GraphVideo':

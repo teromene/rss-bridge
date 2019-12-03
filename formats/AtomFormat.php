@@ -71,7 +71,7 @@ class AtomFormat extends FormatAbstract{
 			$entryTitle = $this->xml_encode($entryTitle);
 			$entryUri = $this->xml_encode($entryUri);
 			$entryTimestamp = $this->xml_encode(gmdate(DATE_ATOM, $entryTimestamp));
-			$entryContent = $this->xml_encode($this->sanitizeHtml($entryContent));
+			$entryContent = $this->sanitizeHtml($entryContent);
 
 			$entryEnclosures = '';
 			foreach($item->getEnclosures() as $enclosure) {
@@ -111,7 +111,7 @@ class AtomFormat extends FormatAbstract{
 		<id>{$entryID}</id>
 		{$entryLinkAlternate}
 		{$entryAuthor}
-		<content type="html">{$entryContent}</content>
+		<content type="html"><![CDATA[{$entryContent}]]></content>
 		{$entryEnclosures}
 		{$entryCategories}
 	</entry>
